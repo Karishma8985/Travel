@@ -1,0 +1,444 @@
+{% load static %}{% static "images" as baseUrl %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Travelo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %} ">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+      .img_about
+      {
+        margin:50px;
+        width: 500px;
+        height:600px;
+        margin-top: 40px;
+        margin-left: 100px;
+        margin-right: 50px;
+        border-radius:12px;
+        box-shadow:12px 19px 15px black;
+      }
+          .about_content
+          {
+              margin-top: 50px;
+          }
+  
+          .about_button
+          {
+            align-items: center;
+            background-color: orange;
+            background-position: 0 0;
+            border: 1px solid #FEE0E0;
+            border-radius: 11px;
+            box-sizing: border-box;
+            color: #D33A2C;
+            cursor: pointer;
+            display: flex;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 33.4929px;
+            list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+            padding: 2px 12px;
+            text-align: left;
+            text-decoration: none;
+            text-shadow: none;
+            text-underline-offset: 1px;
+            transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            word-break: break-word;
+          }
+  
+          .about_button:active,
+          .about_button:hover,
+          .about_button:focus {
+            outline: 0;
+          }
+  
+  
+          .about_button:active {
+            background-color: #D33A2C;
+            box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+            color: #FFFFFF;
+          }
+  
+          .about_button:hover {
+            background-color: #FFE3E3;
+            border-color: #FAA4A4;
+          }
+  
+          .about_button:active:hover,
+          .about_button:focus:hover,
+          .about_button:focus {
+            background-color: #D33A2C;
+            box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+            color: #FFFFFF;
+          }
+    </style>
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+<body>
+
+
+    <!-- header-start -->
+    <header>
+      <div class="header-area ">
+          <div id="sticky-header" class="main-header-area">
+              <div class="container-fluid">
+                  <div class="header_bottom_border">
+                      <div class="row align-items-center">
+                          <div class="col-xl-2 col-lg-2">
+                              <div class="logo">
+                                  <a href="/">
+                                      <img src="{% static 'img/logo.png' %}" alt="">
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="col-xl-6 col-lg-6">
+                              <div class="main-menu  d-none d-lg-block">
+                                  <nav>
+                                      <ul id="navigation">
+                                          <li><a class="active" href="/">home</a></li>
+                                          <li><a href="about">About</a></li>
+                                           </li>
+                                           <li><a href="upcoming_trips">Upcoming Trips</a></li>
+                                           </li>
+                                          {% if user.is_authenticated %}
+                                          <li>Hello, {{user.first_name}}</li>
+                                          <li><a href="logout">logout</a></li>
+                                          {%else%}
+                                          <li><a href="login">Login</a></li>
+                                          <li><a href="register">Register</a></li>
+                                          {%endif%}
+                                       
+                                          <li><a href="contact.html"></a></li>
+
+                                      </ul>
+                                  </nav>
+                              </div>
+                          </div>
+
+
+                           <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                              <div class="social_wrap d-flex align-items-center justify-content-end">
+                                  <div class="number">
+                                      <p> <i class="fa fa-phone"></i> +91 99999 88888</p>
+                                  </div>
+
+                                  <div class="social_links d-none d-xl-block">
+                                      <ul>
+                                          <li>
+                                              <a href="#"> <i class="fa fa-instagram"></i> </a>
+                                          </li>
+                                          <li>
+                                              <a href="#"> <i class="fa fa-linkedin"></i> </a>
+                                          </li>
+                                          <li>
+                                              <a href="#"> <i class="fa fa-facebook"></i> </a>
+                                          </li>
+                                          <li>
+                                              <a href="#"> <i class="fa fa-google-plus"></i> </a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+
+
+                          <div class="col-12">
+                              <div class="mobile_menu d-block d-lg-none"></div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </header>
+  <!-- header-end -->
+
+<div class="video_area video_bg overlay">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="video_wrap text-center">
+                  <h3>Let us take you away</h3><br><br><br><br>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="about" style="padding:20px; background-color:#F1EFF0">
+  <div class="container" style="padding:0px; ">
+    <div class="row about_row">
+      <div class="col-lg-6">
+        <div class="about_content">
+
+                  <div class="show">
+                  <div class="row">
+                  <div class="col-md-12 text-center">
+                      <h3 class="animate-charcter">Welcome to Concept Tour & Travel</h3>
+                  </div>
+                  </div>
+                  </div>
+                     <br>
+          <div class="text_highlight" style="color: #36454F;">Tours are the occasions which relax our busy life and add colors to our happiness. But still we need to think a lot before investing on long dreamed tours. So we Concept as a Tour & Travel service provider are determined in fulfilling your dream place visit with all kind of assistance and guidance.</div>
+          <br>
+                      <div class="about_text">
+            <p style="color: #36454F;">In a Travel world we are passionate about unlocking the magic of India through curated travel experiences.our mission is to provide immersive journeys that celebrate the rich cultural tapestry and natural beauty of this diverse nation. With a dedicated team of travel enthusiasts, we combine expertise with a customer-centric approach to craft personalized adventures. Transparency in our practices, commitment to responsible tourism, and a focus on community impact define our values. Join us on a transformative exploration of India, where each trip is a story waiting to be written.
+                          </p>
+                          <p style="color: #36454F;">Travel in the Middle Ages offered hardships and challenges, though it was important to the economy and to society. The wholesale sector depended (for example) on merchants dealing with/through caravans or sea-voyagers, end-user retailing often demanded the services of many itinerant peddlers wandering from village to hamlet, gyrovagues (wandering monks) and wandering friars brought theology and pastoral support to neglected areas, traveling minstrels toured, and armies ranged far and wide in various crusades and in sundry other wars. Pilgrimages were common in both the European and Islamic world and involved streams of travelers both locally and internationally.
+                          </p>
+          </div>
+                      
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="about_image" style="padding:0px;">
+          <img class="img_about" src="{% static 'images/aboutus.jpg' %}" alt="">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="travel_variation_area">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-4 col-md-6">
+              <div class="single_travel text-center">
+                  <div class="icon">
+                      <img src="{% static 'img/svg_icon/1.svg' %}" alt="">
+                  </div>
+                  <h3>Comfortable Journey</h3>
+                  <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+              <div class="single_travel text-center">
+                  <div class="icon">
+                      <img src="{% static 'img/svg_icon/2.svg' %}" alt="">
+                  </div>
+                  <h3>Luxuries Hotel</h3>
+                  <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+              </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+              <div class="single_travel text-center">
+                  <div class="icon">
+                      <img src="{% static 'img/svg_icon/3.svg' %}" alt="">
+                  </div>
+                  <h3>Travel Guide</h3>
+                  <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="footer_top">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-4 col-md-6 col-lg-4 ">
+                  <div class="footer_widget">
+                      <div class="footer_logo">
+                          <a href="#">
+                              <img src="{% static 'img/footer_logo.png' %}" alt="">
+                          </a>
+                      </div>
+                      <p>Travello Desti<br> 42A/2B, Sector 2, Gandhinagar, GJ-382007, India <br>
+                          <a href="#">+91 99999 88888</a> <br>
+                          <a href="#">kavya@gmail.com</a>
+                      </p>
+                      <div class="socail_links">
+                          <ul>
+                              <li>
+                                  <a href="#">
+                                      <i class="ti-facebook"></i>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                      <i class="ti-twitter-alt"></i>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                      <i class="fa fa-instagram"></i>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#">
+                                      <i class="fa fa-pinterest"></i>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="https://www.youtube.com/user/javaboynavin">
+                                      <i class="fa fa-youtube-play"></i>
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+
+                  </div>
+              </div>
+              <div class="col-xl-2 col-md-6 col-lg-2">
+                  <div class="footer_widget">
+                      <h3 class="footer_title">
+                          Company
+                      </h3>
+                      <ul class="links">
+                          <li><a href="#">Pricing</a></li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#"> Gallery</a></li>
+                          <li><a href="#"> Contact</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-md-6 col-lg-3">
+                  <div class="footer_widget">
+                      <h3 class="footer_title">
+                          Popular destination
+                      </h3>
+                      <ul class="links double_links">
+                          <li><a href="#">Indonesia</a></li>
+                          <li><a href="#">America</a></li>
+                          <li><a href="#">India</a></li>
+                          <li><a href="#">Switzerland</a></li>
+                          <li><a href="#">Italy</a></li>
+                          <li><a href="#">Canada</a></li>
+                          <li><a href="#">Franch</a></li>
+                          <li><a href="#">England</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-md-6 col-lg-3">
+                  <div class="footer_widget">
+                      <h3 class="footer_title">
+                          Instagram
+                      </h3>
+                      <div class="instagram_feed">
+                          <div class="single_insta">
+                              <a href="#">
+                                  <img src="{% static 'img/instagram/1.png' %}" alt="">
+                              </a>
+                          </div>
+                          <div class="single_insta">
+                              <a href="#">
+                                  <img src="{% static 'img/instagram/2.png' %}" alt="">
+                              </a>
+                          </div>
+                          <div class="single_insta">
+                              <a href="#">
+                                  <img src="{% static 'img/instagram/3.png' %}" alt="">
+                              </a>
+                          </div>
+                          <div class="single_insta">
+                              <a href="#">
+                                  <img src="{% static 'img/instagram/4.png' %}" alt="">
+                              </a>
+                          </div>
+                          <div class="single_insta">
+                              <a href="#">
+                                  <img src="{% static 'img/instagram/5.png' %}" alt="">
+                              </a>
+                          </div>
+                          <div class="single_insta">
+                              <a href="#">
+                                  <img src="{% static 'img/instagram/6.png' %}" alt="">
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="copy-right_text">
+      <div class="container">
+          <div class="footer_border"></div>
+          <div class="row">
+              <div class="col-xl-12">
+                  <p class="copy_right text-center">
+                      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                      Copyright &copy;
+                      <script>
+                          document.write(new Date().getFullYear());
+                      </script> All rights reserved by H&B Computer Education</a>
+                      <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+<script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'js/ajax-form.js' %}"></script>
+<script src="{% static 'js/waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/scrollIt.js' %}"></script>
+<script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/nice-select.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/gijgo.min.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+
+
+
+<!--contact js-->
+<script src="{% static 'js/contact.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/jquery.form.js' %}"></script>
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+    $('#datepicker').datepicker({
+        iconsLibrary: 'fontawesome',
+        icons: {
+            rightIcon: '<span class="fa fa-caret-down"></span>'
+        }
+    });
+</script>
+</body>
+
+</html>
